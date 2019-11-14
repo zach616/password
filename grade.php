@@ -11,3 +11,6 @@
     echo "<div id='results'>$totalCorrect / 1 correct</div>";
     
 ?>
+if ($totalCorrect = 1)
+    <meta http-equiv = "refresh" content = "2; url = zach616.github.io" />
+  

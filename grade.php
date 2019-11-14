@@ -1,4 +1,4 @@
-
+<script>
 <?php
     
     $answer1 = $_POST['question-1-answers'];
@@ -13,4 +13,4 @@
 ?>
 if ($totalCorrect = 1)
     <meta http-equiv = "refresh" content = "2; url = zach616.github.io" />
-  
+  </script>

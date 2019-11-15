@@ -1,33 +1,69 @@
-var Arende = document.getElementById("Arende");
-var Rubrik2 = document.getElementById("srt");
-var Bestallning = document.getElementById("Bestallning");
-var Anmalan = document.getElementById("Anmalan");
+<SCRIPT language="JavaScript"
+        type="text/javascript">
+<!--
+//
+// Documentation:
+//   http://chami.com/tips/javascript/
+//
+function checkAnswer(quizForm,
+                     theAnswer,
+                     urlRight,
+                     urlWrong)
+{
+  var s = "?";
 
-// Listen to changes in <select>
-Arende.addEventListener('change', function() {
-
-  // Get the value of selected <option>
-  var value = this.options[this.selectedIndex].value;
-
-  // Hide all other elements
-  // I recomemnd that you give these elements a class instead!
-  Rubrik2.style.display = 'none';
-  Bestallning.style.display = 'none';
-  Anmalan.style.display = 'none';
-
-  // Now we use switch statements to go through all the options
-  switch(value) {
-
-    case 'Bestallning':
-      Bestallning.style.display = 'block';
-      break;
-
-    case 'Anmalan':
-      Anmalan.style.display = 'block';
-      break;
-
-    // And etc...
-
+  // go through the "current choices"
+  // to find the selected choice.
+  // radio boxes pointing to choices
+  // must be named "cc"
+  // change if necessary
+  //
+  var i = 0;
+  for(;i<quizForm.elements.length;i++)
+  {
+    if(("cc" ==
+        quizForm.elements[i].name) &&
+       (quizForm.elements[i].checked))
+    {
+      s = quizForm.elements[i].value;
+    }
   }
 
-});
+  // no choice was selected
+  //
+  if("?" == s)
+  {
+    alert("Please make a selection.");
+    return false;
+  }
+
+  // check if we have the correct
+  // choice selected
+  //
+  if(s == theAnswer)
+  {
+    alert("'"+s+"' is correct!");
+    if(urlRight)
+    {
+    document.location.href = urlRight;
+    }
+  }
+  else
+  {
+    alert("'"+s+"' is incorrect.");
+    if( urlWrong )
+    {
+    document.location.href = urlWrong;
+    }
+  }
+
+  // return "false" to indicate not to
+  // submit the form.
+  // change this to "true" if the form
+  // "action" is valid,
+  // i.e. points to a valid CGI script
+  //
+  return false;
+}
+//-->
+</SCRIPT>

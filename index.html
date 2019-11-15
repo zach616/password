@@ -1,4 +1,33 @@
-<form action="wow.php" method="post">
-  <input type="text" name="answer">
-         <input type="submit">
-</form>
+var Arende = document.getElementById("Arende");
+var Rubrik2 = document.getElementById("srt");
+var Bestallning = document.getElementById("Bestallning");
+var Anmalan = document.getElementById("Anmalan");
+
+// Listen to changes in <select>
+Arende.addEventListener('change', function() {
+
+  // Get the value of selected <option>
+  var value = this.options[this.selectedIndex].value;
+
+  // Hide all other elements
+  // I recomemnd that you give these elements a class instead!
+  Rubrik2.style.display = 'none';
+  Bestallning.style.display = 'none';
+  Anmalan.style.display = 'none';
+
+  // Now we use switch statements to go through all the options
+  switch(value) {
+
+    case 'Bestallning':
+      Bestallning.style.display = 'block';
+      break;
+
+    case 'Anmalan':
+      Anmalan.style.display = 'block';
+      break;
+
+    // And etc...
+
+  }
+
+});
